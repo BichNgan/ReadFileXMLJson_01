@@ -40,7 +40,18 @@ public class MainActivity extends AppCompatActivity {
         //-----------------------------------
             lvDSNV=(ListView) findViewById(R.id.lvDSNV);
         //-------------------------------
+        try {
+            arrayListDSNV = readDSNV_Json(filename);
+            setDataLView(arrayListDSNV);
+            adapter = new ArrayAdapter<>(getApplication(),
+                    androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,dataLView);
+            lvDSNV.setAdapter(adapter);
 
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }
@@ -75,6 +86,13 @@ public class MainActivity extends AppCompatActivity {
         return arrayListDSNV;
     }
 
+    void setDataLView(ArrayList<NV> arrayListDSNV)
+    {
+        for (NV nv: arrayListDSNV) {
+            String st = "MSNV: " + nv.getMsnv() + "--" + "Họ tên: " + nv.getHten();
+            dataLView.add(st);
+        }
+    }
 
 
 
