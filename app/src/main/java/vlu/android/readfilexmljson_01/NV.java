@@ -1,6 +1,8 @@
 package vlu.android.readfilexmljson_01;
 
-public class NV {
+import java.io.Serializable;
+
+public class NV  implements Serializable {
     String msnv;
     String idAnh;
     String hten;

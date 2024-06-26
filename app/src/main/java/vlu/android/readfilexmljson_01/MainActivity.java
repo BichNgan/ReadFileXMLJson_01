@@ -1,6 +1,9 @@
 package vlu.android.readfilexmljson_01;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         //-----------------------------------
             lvDSNV=(ListView) findViewById(R.id.lvDSNV);
         //-------------------------------
+        //load dữ liệu lên cho LView
         try {
             arrayListDSNV = readDSNV_Json(filename);
             setDataLView(arrayListDSNV);
@@ -52,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
+        //------------------------
+        //Xu ly sự kiện click item mở activity chi tiết của NV
 
+        addEvent();
 
     }
 
@@ -92,6 +99,20 @@ public class MainActivity extends AppCompatActivity {
             String st = "MSNV: " + nv.getMsnv() + "--" + "Họ tên: " + nv.getHten();
             dataLView.add(st);
         }
+    }
+
+    void addEvent()
+    {
+        lvDSNV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                NV nv = arrayListDSNV.get(i);
+                Intent intent = new Intent(MainActivity.this,NVDetailActivity.class);
+                intent.putExtra("nv",nv);
+
+                startActivity(intent);
+            }
+        });
     }
 
 
