@@ -1,0 +1,28 @@
+{"dsnv":
+	[
+		{"msnv":"NV01",
+		 "anh":"sv1",
+		 "tensv":"Nguyễn Thanh Lan",
+		 "ngaysinh":"12/05/1997"
+		 "cvu":"Chuyên viên kỹ thuật"
+		},
+		{"msnv":"NV02",
+		 "anh":"sv2",
+		 "tensv":"Trần Văn Dũng",
+		 "ngaysinh":"10/07/1995"
+		 "cvu":"Trưởng phòng"
+		},
+		{"msnv":"NV03",
+		 "anh":"sv3",
+		 "tensv":"Lê Thị Hoa",
+		 "ngaysinh":"10/07/1998"
+		 "cvu":"Kiểm định viên"
+		},
+		{"msnv":"NV04",
+		 "anh":"sv4",
+		 "tensv":"Phạm Ngọc Thành",
+		 "ngaysinh":"10/3/1994"
+		 "cvu":"Giám đốc"
+		}	
+	]
+}
